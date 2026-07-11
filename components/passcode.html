@@ -1,0 +1,21 @@
+<div id="passcode-screen">
+  <div class="glass-card passcode-card">
+    <h2>🔒 Verifikasi Dulu, Yuk</h2>
+    <p class="passcode-desc">Masukkan tanggal &amp; bulan lahir Juliza untuk membuka kejutan ini.</p>
+
+    <div class="passcode-inputs">
+      <input type="text" id="pcDay" maxlength="2" placeholder="DD" inputmode="numeric" autocomplete="off">
+      <span class="pc-sep">/</span>
+      <input type="text" id="pcMonth" maxlength="2" placeholder="MM" inputmode="numeric" autocomplete="off">
+    </div>
+
+    <p id="passcodeWarning" class="passcode-warning hidden">❌ Coba lagi, tanggalnya belum tepat.</p>
+
+    <button id="passcodeSubmit">Buka Kunci</button>
+    <button id="hintBtn" type="button" class="hint-btn">💡 Butuh petunjuk?</button>
+    <p id="passcodeHint" class="passcode-hint hidden">
+      Petunjuk: format tanggal-bulan. Bulannya sama dengan bulan Proklamasi
+      Kemerdekaan RI, dikurangi satu.
+    </p>
+  </div>
+</div>
