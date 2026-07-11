@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Juliza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="assets/keluarga1.jpeg">
+<link rel="preload" as="image" href="assets/tahunan.jpeg">
+<link rel="preload" as="image" href="assets/moment6.jpeg">
+</head>
+<body>
+
+<!-- ============ KOMPONEN (di-load via fetch) ============ -->
+<div id="loader-root"></div>
+
+<div id="night-sky"><div id="stars"></div><div id="meteors"></div><div id="particles"></div><div class="moon-glow"></div><div class="moon"></div></div>
+
+<div id="passcode-root"></div>
+<div id="quiz-root"></div>
+
+<div id="hero-root"></div>
+
+<section id="story" class="hidden">
+  <div id="envelope-root"></div>
+  <div id="gallery-root"></div>
+  <div id="ending-root"></div>
+</section>
+
+<!-- ============ ELEMEN DEKORASI & GLOBAL (tetap di index.html) ============ -->
+<audio id="bgMusic" preload="auto"><source src="assets/music.mp3" type="audio/mpeg"></audio>
+<div id="aurora"><div class="aurora-layer layer1"></div><div class="aurora-layer layer2"></div></div>
+<div id="night-clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div></div>
+<div id="balloon-container"><div class="balloon red"></div><div class="balloon blue"></div><div class="balloon pink"></div><div class="balloon yellow"></div></div>
+<div id="shooting-stars"><span class="meteor meteor1"></span><span class="meteor meteor2"></span><span class="meteor meteor3"></span><span class="meteor meteor4"></span></div>
+<div id="light-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div id="transition"><div class="fade"></div></div>
+<div id="controls" class="hidden"><button id="prevScene">⟵</button><button id="nextScene">⟶</button></div>
+<button id="skipAnimation" class="hidden">Lewati Animasi</button>
+
+<noscript>Website ini memerlukan JavaScript agar dapat berjalan.</noscript>
+
+<!-- ============ SCRIPT: LOAD KOMPONEN DULU, BARU JALANKAN script.js ============ -->
+<script>
+  async function loadComponent(rootId, url) {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.error('Gagal memuat komponen:', url);
+      return;
+    }
+    const html = await res.text();
+    document.getElementById(rootId).innerHTML = html;
+  }
+
+  (async () => {
+    await Promise.all([
+      loadComponent('loader-root',    'components/loader.html'),
+      loadComponent('passcode-root',  'components/passcode.html'),
+      loadComponent('quiz-root',      'components/quiz.html'),
+      loadComponent('hero-root',      'components/hero.html'),
+      loadComponent('envelope-root',  'components/envelope.html'),
+      loadComponent('gallery-root',   'components/gallery.html'),
+      loadComponent('ending-root',    'components/ending.html'),
+    ]);
+    document.dispatchEvent(new Event('componentsLoaded'));
+  })();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
