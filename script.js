@@ -68,7 +68,7 @@ document.addEventListener('componentsLoaded', () => {
   function getLetterText() {
     return `Hai ${chosenNickname},
 
-Di hari spesialmu ini, aku ingin kamu tahu betapa berartinya kamu.
+Di hari spesialmu ini, aku ingin kamu tahu betapa seharusnya bahagianya kamu.
 Semoga tahun ini membawa lebih banyak tawa, kedamaian, dan mimpi
 yang perlahan menjadi kenyataan.
 
